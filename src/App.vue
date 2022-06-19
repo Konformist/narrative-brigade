@@ -1,26 +1,50 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <button @click="mainStore.nextScreen()">
+      To start
+    </button>
+  </div>
+  <ScreenStart
+    v-if="mainStore.screen === 'start'"
+    style="flex-grow: 1"
+  />
+  <ScreenScene
+    v-else-if="mainStore.screen === 'scene'"
+    style="flex-grow: 1"
+  />
+  <ScreenEnd
+    v-else-if="mainStore.screen === 'end'"
+    style="flex-grow: 1"
+  />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapStores } from 'pinia';
+import { useMainStore } from '@/store/index.js';
+import ScreenEnd from '@/components/ScreenEnd.vue';
+import ScreenScene from '@/components/ScreenScene.vue';
+import ScreenStart from '@/components/ScreenStart.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    ScreenEnd,
+    ScreenScene,
+    ScreenStart,
+  },
+
+  computed: {
+    ...mapStores(useMainStore),
+  },
 }
 </script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
 }
 </style>
