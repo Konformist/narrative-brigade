@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding: 4px; background: #c9c9c9">
     <button @click="mainStore.nextScreen()">
       To start
     </button>
@@ -41,10 +41,20 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Consolas;
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+}
+
+button,
+input {
+  font-family: Consolas;
+  font-size: 14px;
+}
+
+button {
+  font-weight: 600;
 }
 </style>

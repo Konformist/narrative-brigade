@@ -12,7 +12,10 @@
         </label>
       </div>
       <div>
-        <button @click="mainStore.nextScreen('scene')">
+        <button
+          style="width: 100%; margin-top: 4px;"
+          @click="mainStore.nextScreen('scene')"
+        >
           Start
         </button>
       </div>

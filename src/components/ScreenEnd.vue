@@ -1,5 +1,5 @@
 <template>
-  <div style="background: #dc4949; display: flex;">
+  <div style="background: #a016e8; display: flex;">
     <div style="margin: auto">
       THE END
     </div>
@@ -15,6 +15,10 @@ export default {
 
   computed: {
     ...mapStores(useMainStore),
+  },
+  
+  created() {
+    this.mainStore.scene = 'start';
   },
 };
 </script>
