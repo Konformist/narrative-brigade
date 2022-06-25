@@ -2,51 +2,43 @@
   <div
     class="screen-start nb-flex nb-flex-center"
   >
-    <div
-      class="screen-start-name"
-      style="margin-bottom: 40px"
-    >
-      Narrative Brigade
-    </div>
     <div class="screen-start-menu">
       <div class="screen-start-menu--caption">
-        Menu
+        Settings
+      </div>
+      <div>
+        Sound
+      </div>
+      <div class="nb-flex nb-mt-4">
+        <button
+          @click="mainStore.settings.sound = normalize(mainStore.settings.sound - 5, 100, 0)"
+        >
+          -
+        </button>
+        <input
+          style="flex-grow: 1;"
+          type="range"
+          :max="100"
+          :min="0"
+          :step="1"
+          v-model.number="mainStore.settings.sound"
+        />
+        <button
+          @click="mainStore.settings.sound = normalize(mainStore.settings.sound + 5, 100, 0)"
+        >
+          +
+        </button>
       </div>
       <button
-        class="nb-wp-100"
-        @click="mainStore.screen = 'scene'"
+        class="nb-wp-100 nb-mt-4"
       >
-        Start
+        Reset game
       </button>
       <button
         class="nb-wp-100 nb-mt-4"
-        @click="mainStore.screen = 'saved'"
+        @click="mainStore.screen = 'start'"
       >
-        Loading
-      </button>
-      <button
-        class="nb-wp-100 nb-mt-4"
-        @click="mainStore.screen = 'settings'"
-      >
-        Settings
-      </button>
-      <button
-        class="nb-wp-100 nb-mt-4"
-        @click="mainStore.screen = 'help'"
-      >
-        Help
-      </button>
-      <button
-        class="nb-wp-100 nb-mt-4"
-        @click="mainStore.screen = 'about'"
-      >
-        About
-      </button>
-      <button
-        class="nb-wp-100 nb-mt-4"
-        @click="mainStore.screen = 'specials'"
-      >
-        Specials
+        Back
       </button>
     </div>
   </div>
@@ -57,10 +49,16 @@ import { useMainStore } from '@/store/index.js';
 import { mapStores } from 'pinia';
 
 export default {
-  name: 'ScreenStart',
+  name: 'ScreenSettings',
 
   computed: {
     ...mapStores(useMainStore),
+  },
+
+  methods: {
+    normalize(value, max, min) {
+      return value > max ? max : value < min ? min : value;
+    },
   },
 };
 </script>
@@ -70,7 +68,7 @@ export default {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  
+
   &-name {
     font-size: 24px;
     text-transform: uppercase;
@@ -78,7 +76,7 @@ export default {
 
   &-menu {
     width: 250px;
-    
+
     &--caption {
       margin-bottom: 16px;
       text-transform: uppercase;

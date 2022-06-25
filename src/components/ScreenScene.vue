@@ -1,8 +1,8 @@
 <template>
   <div
     class="scene"
-    :style="{ background: currentScene.background }"
   >
+    <!--    :style="{ background: currentScene.background }"-->
     <div class="scene-block">
       <div>
         {{ currentScene.text }}
@@ -51,6 +51,8 @@ export default {
 
 <style scoped>
 .scene {
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 
@@ -61,9 +63,8 @@ export default {
   bottom: 8px;
   left: 10vw;
   right: 10vw;
-  border: 2px solid #c9c9c9;
+  border: 2px solid #18e800;
   padding: 8px;
-  background: #918d8d8c;
 }
 
 .scene-action {

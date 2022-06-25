@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+}
+
+* {
+  font-family: Consolas;
+  font-size: 14px;
+  color: #18e800;
+  box-sizing: border-box;
+}
+
+input {
+  border-radius: 0;
+  background: #000;
+  outline: none;
+  border: 1px solid #18e800;
+
+  &[type=range] {
+    appearance: none;
+    border: 0;
+
+    &::-webkit-slider-runnable-track {
+      border-radius: 0;
+      height: 4px;
+      background-color: #18e800;
+    }
+
+    &::-webkit-slider-thumb {
+      border: 1px solid #18e800;
+      background: #000;
+      border-radius: 0;
+      cursor: pointer;
+      width: 12px;
+      height: 12px;
+      -webkit-appearance: none;
+      margin-top: -4px;
+    }
+
+    &::-moz-range-track {
+      border-radius: 0;
+      height: 4px;
+      background-color: #18e800;
+    }
+
+    &::-moz-range-thumb {
+      border: 1px solid #18e800;
+      background: #000;
+      border-radius: 0;
+      cursor: pointer;
+      width: 12px;
+      height: 12px;
+      -webkit-appearance: none;
+      margin-top: -4px;
+    }
+  }
+}
+
+button {
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 0;
+  background: #000;
+  outline: none;
+  border: 1px solid #18e800;
+
+  &:active {
+    background: #18e800;
+    color: #000;
+  }
+}
+
+.nb-wp-100 {
+  width: 100%;
+}
+
+.nb-mt-4 {
+  margin-top: 4px;
+}
+
+.nb-flex {
+  display: flex;
+
+  &-center {
+    align-items: center;
+    justify-content: center;
+  }
+}

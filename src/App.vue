@@ -1,34 +1,61 @@
 <template>
-  <div style="padding: 4px; background: #c9c9c9">
-    <button @click="mainStore.nextScreen()">
-      To start
-    </button>
-  </div>
+  <ScreenLoading
+    v-if="mainStore.screen === 'loading'"
+  />
   <ScreenStart
-    v-if="mainStore.screen === 'start'"
-    style="flex-grow: 1"
+    v-else-if="mainStore.screen === 'start'"
+  />
+  <ScreenSettings
+    v-else-if="mainStore.screen === 'settings'"
+  />
+  <ScreenSaved
+    v-else-if="mainStore.screen === 'saved'"
+  />
+  <ScreenSave
+    v-else-if="mainStore.screen === 'save'"
+  />
+  <ScreenHelp
+    v-else-if="mainStore.screen === 'help'"
+  />
+  <ScreenAbout
+    v-else-if="mainStore.screen === 'about'"
+  />
+  <ScreenSpecials
+    v-else-if="mainStore.screen === 'specials'"
   />
   <ScreenScene
     v-else-if="mainStore.screen === 'scene'"
-    style="flex-grow: 1"
   />
-  <ScreenEnd
-    v-else-if="mainStore.screen === 'end'"
-    style="flex-grow: 1"
+  <ScreenCredits
+    v-else-if="mainStore.screen === 'credits'"
   />
 </template>
 
 <script>
+import ScreenAbout from '@/components/ScreenAbout.vue';
+import ScreenCredits from '@/components/ScreenCredits.vue';
+import ScreenHelp from '@/components/ScreenHelp.vue';
+import ScreenSpecials from '@/components/ScreenSpecials.vue';
 import { mapStores } from 'pinia';
 import { useMainStore } from '@/store/index.js';
-import ScreenEnd from '@/components/ScreenEnd.vue';
+import ScreenSave from '@/components/ScreenSave.vue';
+import ScreenSaved from '@/components/ScreenSaved.vue';
+import ScreenSettings from '@/components/ScreenSettings.vue';
+import ScreenLoading from '@/components/ScreenLoading.vue';
 import ScreenScene from '@/components/ScreenScene.vue';
 import ScreenStart from '@/components/ScreenStart.vue';
 
 export default {
   name: 'App',
   components: {
-    ScreenEnd,
+    ScreenCredits,
+    ScreenSpecials,
+    ScreenAbout,
+    ScreenHelp,
+    ScreenSave,
+    ScreenSaved,
+    ScreenSettings,
+    ScreenLoading,
     ScreenScene,
     ScreenStart,
   },
@@ -36,25 +63,18 @@ export default {
   computed: {
     ...mapStores(useMainStore),
   },
+  
+  created() {
+    setTimeout(() => {
+      this.mainStore.screen = 'start';
+    }, 1000);
+  },
 }
 </script>
 
 <style>
 #app {
-  font-family: Consolas;
-  display: flex;
-  flex-direction: column;
   width: 100vw;
   height: 100vh;
-}
-
-button,
-input {
-  font-family: Consolas;
-  font-size: 14px;
-}
-
-button {
-  font-weight: 600;
 }
 </style>
