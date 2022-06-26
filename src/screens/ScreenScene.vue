@@ -192,6 +192,7 @@ $component: screen-scene;
   &-buttons {
     position: absolute;
     top: 16px;
+    z-index: 5;
 
     &--inventory {
       left: 16px;
@@ -233,7 +234,7 @@ $component: screen-scene;
     position: absolute;
     border: 2px solid #18e800;
     padding: 8px;
-    background: rgba(0, 0, 0, 0.75);
+    background: #000;
   }
 
   &-action {
