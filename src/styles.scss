@@ -66,6 +66,8 @@ button {
   background: #000;
   outline: none;
   border: 1px solid #18e800;
+  min-width: 22px;
+  height: 22px;
 
   &:active {
     background: #18e800;

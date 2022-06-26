@@ -22,7 +22,7 @@
         class="nb-wp-100 nb-mt-4"
         @click="mainStore.screen = 'saved'"
       >
-        Loading
+        Load
       </button>
       <button
         class="nb-wp-100 nb-mt-4"

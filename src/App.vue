@@ -32,18 +32,18 @@
 </template>
 
 <script>
-import ScreenAbout from '@/components/ScreenAbout.vue';
-import ScreenCredits from '@/components/ScreenCredits.vue';
-import ScreenHelp from '@/components/ScreenHelp.vue';
-import ScreenSpecials from '@/components/ScreenSpecials.vue';
+import ScreenAbout from '@/screens/ScreenAbout.vue';
+import ScreenCredits from '@/screens/ScreenCredits.vue';
+import ScreenHelp from '@/screens/ScreenHelp.vue';
+import ScreenSpecials from '@/screens/ScreenSpecials.vue';
 import { mapStores } from 'pinia';
 import { useMainStore } from '@/store/index.js';
-import ScreenSave from '@/components/ScreenSave.vue';
-import ScreenSaved from '@/components/ScreenSaved.vue';
-import ScreenSettings from '@/components/ScreenSettings.vue';
-import ScreenLoading from '@/components/ScreenLoading.vue';
-import ScreenScene from '@/components/ScreenScene.vue';
-import ScreenStart from '@/components/ScreenStart.vue';
+import ScreenSave from '@/screens/ScreenSave.vue';
+import ScreenSaved from '@/screens/ScreenSaved.vue';
+import ScreenSettings from '@/screens/ScreenSettings.vue';
+import ScreenLoading from '@/screens/ScreenLoading.vue';
+import ScreenScene from '@/screens/ScreenScene.vue';
+import ScreenStart from '@/screens/ScreenStart.vue';
 
 export default {
   name: 'App',
