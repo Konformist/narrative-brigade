@@ -65,6 +65,9 @@ export default {
   },
   
   created() {
+    this.mainStore.loadSettings();
+    this.mainStore.loadSaves();
+
     setTimeout(() => {
       this.mainStore.screen = 'start';
     }, 1000);

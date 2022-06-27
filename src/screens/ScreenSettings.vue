@@ -11,7 +11,7 @@
       </div>
       <div class="nb-flex nb-mt-4">
         <button
-          @click="mainStore.settings.sound = normalize(mainStore.settings.sound - 5, 100, 0)"
+          @click="downSound()"
         >
           -
         </button>
@@ -22,15 +22,17 @@
           :min="0"
           :step="1"
           v-model.number="mainStore.settings.sound"
+          @change="mainStore.saveSettings()"
         />
         <button
-          @click="mainStore.settings.sound = normalize(mainStore.settings.sound + 5, 100, 0)"
+          @click="upSound()"
         >
           +
         </button>
       </div>
       <button
         class="nb-wp-100 nb-mt-4"
+        @click="mainStore.resetSettings()"
       >
         Reset game
       </button>
@@ -56,6 +58,16 @@ export default {
   },
 
   methods: {
+    upSound() {
+      this.mainStore.settings.sound = this.normalize(this.mainStore.settings.sound + 5, 100, 0);
+      this.mainStore.saveSettings();
+    },
+
+    downSound() {
+      this.mainStore.settings.sound = this.normalize(this.mainStore.settings.sound - 5, 100, 0);
+      this.mainStore.saveSettings();
+    },
+
     normalize(value, max, min) {
       return value > max ? max : value < min ? min : value;
     },

@@ -8,18 +8,25 @@
       </div>
       <button
         class="nb-wp-100"
+        @click="mainStore.saveGame()"
       >
         New save
       </button>
       <div class="list nb-mt-4">
-        <div class="nb-flex">
+        <div
+          v-for="(game, index) in mainStore.saveGames"
+          :key="index"
+          class="nb-flex"
+        >
           <div>
-            1.
+            {{ index + 1 }}.
           </div>
           <div style="flex-grow: 1; padding: 0 4px;">
-            Saved game
+            {{ game.title }}
           </div>
-          <button>
+          <button
+            @click="mainStore.saveGame(index)"
+          >
             Save
           </button>
         </div>

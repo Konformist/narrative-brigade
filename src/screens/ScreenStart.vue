@@ -16,7 +16,7 @@
         class="nb-wp-100"
         @click="mainStore.screen = 'scene'"
       >
-        Start
+        {{ mainStore.saveGames.length ? 'Continue' : 'Start' }}
       </button>
       <button
         class="nb-wp-100 nb-mt-4"

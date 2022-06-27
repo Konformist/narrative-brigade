@@ -7,14 +7,26 @@
         Load game
       </div>
       <div class="list">
-        <div class="nb-flex">
-          <div>
-            1.
+        <div
+          v-for="(game, index) in mainStore.saveGames"
+          :key="index"
+          class="nb-flex nb-mt-4"
+          @click.self="mainStore.loadGame(index)"
+        >
+          <div
+            @click="mainStore.loadGame(index)"
+          >
+            {{ index + 1 }}.
           </div>
-          <div style="flex-grow: 1; padding: 0 4px;">
-            Saved game
+          <div
+            style="flex-grow: 1; padding: 0 4px;"
+            @click="mainStore.loadGame(index)"
+          >
+            {{ game.title }}
           </div>
-          <button>
+          <button
+            @click="mainStore.deleteGame(index)"
+          >
             x
           </button>
         </div>
